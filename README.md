@@ -98,7 +98,7 @@ Contributors
 
 Contact
 For queries or support, contact:
-- Email: your-Chaturvediakarsh51@gmail.com
+- Email:-Chaturvediakarsh51@gmail.com
  
 Screenshots
 

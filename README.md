@@ -92,7 +92,7 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 
 Contributors
-- Your Name - Developer Akarsh Chaturvedi
+- Name - Developer Akarsh Chaturvedi
 - Contributions are welcome! Feel free to submit a pull request.
 
 

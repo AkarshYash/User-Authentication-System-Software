@@ -1,105 +1,117 @@
-User Authentication System
+# Secure Multi-Factor Authentication System
 
-The User Authentication System is a comprehensive software solution designed to provide secure and efficient user authentication mechanisms. It combines multiple approaches, including email verification, OTP-based authentication, and face recognition, to ensure robust user identity verification.
+A comprehensive Python-based authentication system that implements multiple security layers and authentication methods using Tkinter for the GUI.
 
+## Features
 
-Features
+### Authentication Methods
+- **Facial Recognition** with liveness detection
+- **OTP Verification** via SMS, Email, WhatsApp, or Voice Call
+- **Email Verification** with code, magic link, or one-click options
+- **Voice Recognition** using speech patterns
+- **QR Code Authentication** for mobile device integration
+- **Behavioral Biometrics** analyzing typing patterns
+- **Multi-Factor Authentication** combining multiple methods
 
-1. Email Verification
-- Sends a One-Time Password (OTP) to the user's email address.
-- Allows the user up to three attempts to enter the correct OTP.
-- Implements blocking of email addresses for 24 hours after multiple failed attempts.
-- OTP expiration is set to 5 minutes for enhanced security.
+### Security Features
+- Four security levels: Low, Medium, High, Maximum
+- Account locking after multiple failed attempts
+- Comprehensive audit logging
+- Encryption of sensitive data
+- Session management with configurable timeout
+- Security analytics dashboard
+- Admin panel for user management
 
-2. OTP Verification
-- Uses the Twilio API to send OTPs to users' mobile numbers.
-- Provides GUI-based verification using Tkinter.
-- Includes functionality to resend OTPs.
+### Technical Implementation
+- SQLite database for user credentials and logs
+- bcrypt for password hashing
+- Fernet encryption for sensitive data
+- OpenCV and DeepFace for facial recognition
+- QR code generation with qrcode library
+- Twilio integration for OTP delivery (simulated)
+- Matplotlib for security analytics visualization
 
-3. Face Authentication
-- Leverages the DeepFace library for face recognition.
-- Continuously verifies live camera feeds against a reference image.
-- Displays real-time match results via OpenCV.
+## Installation
 
+### Prerequisites
+- Python 3.7+
+- Tkinter (usually comes with Python)
+- Required Python packages:
 
-Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/user-authentication-system.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd user-authentication-system
-   ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-   The main libraries used are:
-   - opencv-python
-   - deepface
-   - twilio
-   - tkinter
-
-4. Set up configuration:
-   - Email verification requires valid email credentials and an SMTP server.
-   - OTP-based verification requires Twilio credentials (SID, Auth Token, and a valid Twilio phone number).
-
-
-Usage
-
-Run Individual Modules
-
-1. Email Verification:
-   ```bash
-   python Email_verification.py
-   ```
-
-2. OTP Verification:
-   ```bash
-   python OTPVerification.py
-   ```
-
-3. Face Authentication:
-   ```bash
-   python Face_Authentication.py
-   ```
-
-Run All-in-One System
-
-To utilize all features together:
 ```bash
-python All_in_one.py
+pip install bcrypt opencv-python deepface qrcode[pil] speechrecognition cryptography matplotlib scikit-learn pandas pillow
 ```
 
-Dependencies
-- Python 3.x
-- OpenCV
-- DeepFace
-- Twilio API
-- Tkinter (pre-installed with Python)
+### Database Setup
+The application automatically creates an SQLite database (`auth_system.db`) with the necessary tables on first run.
+
+### Encryption Key
+The system generates an encryption key (`encryption.key`) on first run to secure sensitive data.
+
+## Usage
+
+1. Run the application:
+```bash
+python auth_system.py
+```
+
+2. Select your desired security level (Low, Medium, High, Maximum)
+
+3. Choose an authentication method:
+   - Single method (Face, OTP, Email, Voice, QR)
+   - Multi-Factor (combines multiple methods based on security level)
+
+4. Follow the on-screen instructions for the selected authentication method
+
+5. Upon successful authentication, access the secure dashboard
+
+## Admin Features
+
+The system includes an admin panel for:
+- User registration and management
+- System settings configuration
+- Viewing security analytics
+- Monitoring audit logs
+
+## Security Considerations
+
+- This is a demonstration system and should not be used in production without additional security measures
+- Real implementations would require actual API integrations for:
+  - SMS/Email delivery services (Twilio, AWS SES, etc.)
+  - Voice recognition services
+  - Facial recognition APIs
+  - Secure storage solutions
+
+## File Structure
+
+```
+auth_system.py      # Main application file
+auth_system.db      # Database file (created automatically)
+encryption.key      # Encryption key (created automatically)
+```
+
+## Customization
+
+The system can be extended by:
+- Adding new authentication methods
+- Integrating with real APIs for communication services
+- Enhancing the security analytics with real data
+- Adding more user management features in the admin panel
+
+## License
+
+This project is for educational purposes. Please ensure compliance with relevant regulations when implementing authentication systems.
 
 
-Future Enhancements
-- Add support for fingerprint-based authentication.
-- Implement database integration for user data storage.
-- Enhance GUI with modern frameworks like PyQt or Kivy.
+## Demo 
+<img width="1919" height="998" alt="Screenshot 2025-09-19 192843" src="https://github.com/user-attachments/assets/e8da8eb4-6e73-4e99-a0de-898daf27e84d" />
+<img width="1414" height="985" alt="Screenshot 2025-09-19 192857" src="https://github.com/user-attachments/assets/da10c763-8c24-4eb9-bf9a-5c2e05d575bf" />
+<img width="1290" height="756" alt="Screenshot 2025-09-19 192906" src="https://github.com/user-attachments/assets/3a984488-cae1-44a6-a872-7e2ebb81535b" />
+<img width="835" height="623" alt="Screenshot 2025-09-19 192921" src="https://github.com/user-attachments/assets/ea92c013-e2da-497a-812a-117f07e19fa0" />
+<img width="1161" height="788" alt="Screenshot 2025-09-19 192937" src="https://github.com/user-attachments/assets/2f7fec0c-cedb-4b22-bfbd-15e3afe7ac88" />
+<img width="1600" height="689" alt="Screenshot 2025-09-19 193010" src="https://github.com/user-attachments/assets/a33602c5-26e0-4c3d-9f97-461217b9cd64" />
+<img width="991" height="649" alt="Screenshot 2025-09-19 193022" src="https://github.com/user-attachments/assets/d2cc9886-f822-448a-ab5c-f077cdb78520" />
 
 
-License
-This project is licensed under the MIT License. See the LICENSE file for more details.
 
 
-Contributors
-- Name - Developer Akarsh Chaturvedi
-- Contributions are welcome! Feel free to submit a pull request.
-
-
-Contact
-For queries or support, contact:
-- Email:-Chaturvediakarsh51@gmail.com
- 
-Screenshots
-
-![Screenshot 2025-01-01 000409](https://github.com/user-attachments/assets/fa2b1d39-bf42-49b7-a52f-e09c2a779205)
